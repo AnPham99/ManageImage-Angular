@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-3 text-success fw_bold">Mạng xã hội hình ảnh <img src="../../assets/Img/logo.png" width="100%"></h5>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+              
+              <div class="form-floating mb-3">
+                <input type="text" formControlName="firstName" class="form-control" id="floatingInputname" placeholder="Tên" required autofocus>
+                <label for="floatingInputname">Tên</label>
+              </div>
+              <div *ngIf="registerForm.controls['firstName'].invalid &&(registerForm.controls['firstName'].dirty || registerForm.controls['firstName'].touched)" class="text-danger mb-3">      
+                <span *ngIf="registerForm.controls['firstName'].errors?.required">* Cần phải nhập tên.</span>      
+                <span *ngIf="registerForm.controls['firstName'].errors?.maxlength">* Tên tối đa 20 kí tự.</span> 
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" formControlName="lastName" class="form-control" id="floatingInputUser" placeholder="Họ" required autofocus>
+                <label for="floatingInputUser">Họ</label>
+              </div>
+              
+              <div *ngIf="registerForm.controls['lastName'].invalid &&(registerForm.controls['lastName'].dirty || registerForm.controls['lastName'].touched)" class="text-danger mb-3">
+                <span *ngIf="registerForm.controls['lastName'].errors?.required">* Cần phải nhập họ.</span>      
+                <span *ngIf="registerForm.controls['lastName'].errors?.maxlength">* Họ tối đa 20 kí tự.</span>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="email" formControlName="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com">
+                <label for="floatingInputEmail">Địa chỉ email</label>
+              </div>
+              
+              <div *ngIf="registerForm.controls['email'].invalid &&(registerForm.controls['email'].dirty || registerForm.controls['email'].touched)" class="text-danger mb-3">       
+                <span *ngIf="registerForm.controls['email'].errors?.required">* Bạn chưa nhập email.</span>      
+                <span *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].errors?.pattern">* Email không đúng định dạng.</span>
+              </div>
+              
+              <div class="text-danger mb-3">
+                <span (change)="changeEmail()" *ngIf="!isDone && !isChangeEmail">{{err.Email}}</span>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="email" formControlName="phoneNumber" class="form-control" id="floatingInputphoneNumber" placeholder="Số điện thoại của bạn">
+                <label for="floatingInputphoneNumber">Số điện thoại</label>
+              </div>
+              
+              <div class="text-danger mb-3">
+                <span *ngIf="registerForm.controls['phoneNumber'].invalid &&(registerForm.controls['phoneNumber'].dirty || registerForm.controls['phoneNumber'].touched)">* Bạn chưa số điên thoại.</span>       
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="text" formControlName="userName" class="form-control" id="floatingInputUsername" placeholder="Tên tài khoản" autofocus>
+                <label for="floatingInputUsername">Tên tài khoản</label>
+              </div>
+              
+              <div class="text-danger mb-3">
+                <span *ngIf="registerForm.controls['userName'].invalid &&(registerForm.controls['userName'].dirty || registerForm.controls['userName'].touched)">* Bạn chưa nhập tên tài khoản.</span>       
+                <span (change)="changeUser()" *ngIf="!isDone && !isChangeUser">{{err.UserName}}!</span>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Mật khẩu">
+                <label for="floatingPassword">Mật khẩu</label>
+              </div> 
+              
+              <div class="text-danger mb-3">
+                <span *ngIf="registerForm.controls['password'].invalid &&(registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">* Bạn chưa nhập mật khẩu.</span>       
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="password" formControlName="confirmPassword" class="form-control" id="floatingConfirmPassword" name="ConfirmPassword" placeholder="Nhập lại mật khẩu">
+                <label for="floatingConfirmPassword">Nhập lại mật khẩu</label>
+              </div>
+              
+              <div class="text-danger mb-3">
+                <span *ngIf="registerForm.controls['confirmPassword'].invalid &&(registerForm.controls['confirmPassword'].dirty || registerForm.controls['confirmPassword'].touched)">* Bạn chưa nhập lại mật khẩu.</span>       
+                <span (change)="changeConfirm()" *ngIf="!isDone && !isChangeConfirm">{{err.ConfirmPassword}}!</span>
+              </div>     
+              
+              <div class="d-grid mb-2">
+                  <button [disabled]="!registerForm.valid" type="submit" class="btn btn-lg btn-primary btn-login fw-bold text-uppercase">
+                    Đăng ký
+                  </button>
+             </div>
+              <a class="d-block text-center mt-2 small" [routerLink]="['/login']">Đã có tài khoản? đăng nhập</a>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

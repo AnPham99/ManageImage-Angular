@@ -1,0 +1,73 @@
+
+ <section class="get-in-touch">
+    <h1 class="title add_title">Nhập thông tin ảnh</h1>
+    <form [formGroup]="imageForm" (ngSubmit)="onSubmit()" class="contact-form row justify-content-center add_form">
+        <div class="col-md-8">
+            <label class="label_update" for="name">Tên ảnh</label>
+            <input formControlName="name" id="name" name="name" class="input-text js-input" type="text" required>
+            <!-- <span *ngIf="imageForm.controls['name'].invalid &&(imageForm.controls['name'].dirty || imageForm.controls['name'].touched)" class="errorMessage">* Cần phải nhập tên.</span>       -->
+        </div>
+        <div *ngIf="imageForm.controls['name'].invalid &&(imageForm.controls['name'].dirty || imageForm.controls['name'].touched)" class="errorMessage">
+            <span *ngIf="imageForm.controls['name'].errors?.required">* Cần phải nhập tên.</span>      
+            <span *ngIf="imageForm.controls['name'].errors?.maxlength">* Tên tối đa 30 kí tự.</span>      
+            
+        </div>
+        <div class="col-md-8">
+            <label class="label_update" for="discription">Mô tả</label>
+            <input formControlName="desciption" id="discription" class="input-text js-input" type="text" required>
+        </div>
+        <div *ngIf="imageForm.controls['desciption'].invalid && (imageForm.controls['desciption'].dirty || imageForm.controls['desciption'].touched)" class="errorMessage">
+            <span *ngIf="imageForm.controls['desciption'].errors?.required">* Cần phải nhập mô tả.</span>
+            <span *ngIf="imageForm.controls['desciption'].errors?.maxlength">* Mô tả tối đa 500 kí tự.</span>      
+            
+        </div>
+        <div class="col-md-8">
+            <label class="label_update" for="url">Địa chỉ ảnh (url)</label>
+            <input formControlName="url" id="url" class="input-text js-input" type="text" required>
+        </div>
+        <div class="errorMessage">
+            <span *ngIf="imageForm.controls['url'].invalid && (imageForm.controls['url'].dirty || imageForm.controls['url'].touched)">* Cần phải nhập mô tả.</span>
+
+        </div>
+        <div class="col-md-8 my-5">
+            <select value="" formControlName="categoryId" required class="form-select select_cate" aria-label="Default select example">
+                <option value="">Chọn danh mục</option>
+                <option value="{{cate.id}}" (change)="selectCate($event)" *ngFor = "let cate of cates">{{cate.name}}</option>                                              
+            </select>
+         </div> 
+         <div class="col-md-8 d-flex">
+            <div class="form-check">
+                <input (click)="publicStatus($event)" class="form-check-input add_status_input" type="radio" formControlName="imageStatus" name="imageStatus" value=true id="flexRadioDefault1" checked>
+                <label class="form-check-label add_status_label" for="flexRadioDefault1">
+                  Công khai
+                </label>
+            </div>
+            <div class="form-check ms-4">
+                <input (click)="privateStatus($event)" type="radio" formControlName="imageStatus" name="imageStatus" value=false class="form-check-input add_status_input" id="flexRadioDefault2">
+                <label class="form-check-label add_status_label" for="flexRadioDefault2">
+                  Riêng tư
+                </label>
+            </div>               
+        </div>
+       <div class="form-field col-md-12">
+          <!-- Button trigger modal -->
+            <button [disabled]="!imageForm.valid" type="submit" class="btn btn-primary update_btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Thêm ảnh
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">                  
+                    <div class="modal-body">
+                    Chúc mừng, thêm thành công !
+                    </div>
+                    <div class="modal-footer">
+                    <button (click)="ok()" type="button" class="btn btn-success px-5 update_ok" data-bs-dismiss="modal">Ok</button>                
+                    </div>
+                </div>
+                </div>
+            </div>
+       </div>
+    </form>
+ </section>

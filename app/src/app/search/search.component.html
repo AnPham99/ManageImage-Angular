@@ -1,0 +1,15 @@
+<div class="container mt-5 mb-3">
+    <div class="row">
+        <h3 class="text-info text-center">Kết quả tìm kiếm</h3>
+        <div *ngFor="let image of images" class="col-xl-3 col-md-4 col-sm-6 mt-4">
+            <div class="card">
+                <img  (click)="viewDetail(image.id, image)" src="{{image.url}}" class="card-img-top list_img_content" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{image.name}}</h5>
+                    <p class="card-text list_text_content">{{image.desciption}}.</p>
+                    <a (click)="viewDetail(image.id, image)" class="btn btn-outline-success mx-auto">Xem chi tiết</a>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

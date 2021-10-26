@@ -1,0 +1,36 @@
+.delete_noti {
+    width: 350px !important;
+    margin-left: 38% !important;
+}
+
+.heart_has_like {
+    color: red;
+}
+
+.heart_not_like {
+    color: #ccc;
+}
+
+
+.fa-heart {
+    /* border-bottom: 1px solid pink; */
+    font-size: 22px;
+}
+
+.bg_cmt {
+    background-color: #f5f5f5;
+}
+
+.submit_cmt {
+    height: 40px;
+    background-color: #f5f5f5;
+    padding: 0 20px;
+    border-radius: 4px;
+    margin-left: 10px;
+    border: 1px solid green;
+}
+
+.submit_cmt:hover {
+    background-color: rgb(55, 168, 55);
+
+}

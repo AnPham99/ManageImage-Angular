@@ -1,0 +1,68 @@
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+            <img src="../../assets/Img/anh-bia-facebook-di-phuot.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Mạng xã hội hình ảnh</h1>
+                <h3>Nơi chia sẽ và quản lý những tấm ảnh của bạn.</h3>
+                <button [routerLink]="['/add-image', user.id]" type="button" class="btn btn-outline-primary btn-lg mt-3 slide_btn">
+                    Bắt đầu ngay
+                </button>
+        </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+        <img src="../../assets/Img/anh-bia-facebook-may-anh.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+            <h2>Hãy sống theo cách mà bạn muốn.</h2>       
+            <button [routerLink]="['/add-image', user.id]" type="button" class="btn btn-outline-primary btn-lg mt-5 slide_btn">
+                Bắt đầu ngay
+        </button>
+        </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+        <img src="../../assets/Img/anh-bia-facebook-co-don.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+            <h2>Hãy cùng nhau trải nghiệm những khoảnh khắc tuyệt vời.</h2>  
+            <button [routerLink]="['/add-image', user.id]" type="button" class="btn btn-outline-primary btn-lg mt-5 slide_btn">
+                Bắt đầu ngay
+            </button>          
+        </div>
+    </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <div class="dropdown mb-4 user_profile">
+                <button class="user_profile_btn" id="dLabel" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{user.userName}} <i class="far fa-user"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li><button class="dropdown-item" type="button" [routerLink]="['/userinfo']">Thông tin cá nhân</button></li>
+                  <li><button (click)="logOut()" class="dropdown-item" type="button">Đăng xuất</button></li>  
+                  <!-- (click)="logOut()"           -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>

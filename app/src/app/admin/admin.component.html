@@ -1,0 +1,38 @@
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col">
+      <table *ngIf="images != ''" class="table table-hover table-bordered align-middle text-center table-success table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Tên</th>
+              <th scope="col">Mô tả</th>
+              <th scope="col">Ngày đăng</th>
+              <th scope="col">Người đăng</th>
+              <th scope="col">Hình ảnh</th>
+              <th scope="col">Trạng thái</th> 
+              <th scope="col">Kiểm duyệt</th>               
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let image of images">
+              <th scope="row">{{image.id}}</th>
+              <td>{{image.name}}</td>
+              <td>{{image.desciption}}</td>
+              <td>{{image.dateCreate | date}}</td>
+              <td>{{image.userName}}</td>
+              <td><img src="{{image.url}}" width="50" height="50"></td>
+              <td>{{image.isApproval ? "đã duyệt" : "Đang chờ duyệt"}}</td>
+              <td>
+                <div (click)="approval(image.id)" class="btn btn-success me-2 btn_approval">Duyệt</div>
+                <div (click)="denyRequest(image.id)" class="btn btn-danger">Từ chối</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <P class="fs-2 text-warning" *ngIf="images == ''">Chưa có yêu cầu mới nào !</P>
+    </div>
+  </div>
+</div>
+  

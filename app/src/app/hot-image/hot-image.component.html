@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <h3 class="mb-4 text-warning">Ảnh hot của tháng <i class="fas fa-star"></i></h3>
+    <div class="row justify-content-around">
+        <div class="col-md-3 list_item_hot_repo">
+            <div class="card bg_list-item">
+                <p class="hot_title">Ảnh được nhiều yêu thích</p>
+                <img src="{{topLike?.url}}" class="card-img-top list_img_content_hot rounded-circle" alt="">
+                <div class="card-body text-center">
+                    <h5 class="card-title card_title_name">{{topLike?.name}}</h5>
+                    <div class="d-grid gap-2 col mx-auto">
+                        <button [routerLink]="['/image-detail', topLike?.id]" class="btn btn-outline-info btn_hot_repo" type="button">Xem chi tiết</button>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 list_item_hot_repo">
+            <div class="card bg_list-item">
+                <p class="hot_title">Ảnh có nhiều bình luận</p>
+                <img [routerLink]="['/image-detail', topCmt?.id]" src="{{topCmt?.url}}" class="card-img-top list_img_content_hot rounded-circle" width="168" alt="">
+                <div class="card-body text-center">
+                    <h5 class="card-title card_title_name">{{topCmt?.name}}</h5>
+                    <div class="d-grid gap-2 col mx-auto">
+                        <button [routerLink]="['/image-detail', topCmt?.id]" class="btn btn-outline-info btn_hot_repo" type="button">Xem chi tiết</button>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 list_item_hot_repo">
+            <div class="card bg_list-item">
+                <p class="hot_title">Ảnh có nhiều lượt xem</p>
+                <img [routerLink]="['/image-detail', topView?.id]" src="{{topView?.url}}" class="card-img-top list_img_content_hot rounded-circle" width="168" alt="">
+                <div class="card-body text-center">
+                    <h5 class="card-title card_title_name">{{topView?.name}}</h5>
+                    <div class="d-grid gap-2 col mx-auto">
+                        <button [routerLink]="['/image-detail', topView?.id]" class="btn btn-outline-info btn_hot_repo" type="button">Xem chi tiết</button>
+                    </div>                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

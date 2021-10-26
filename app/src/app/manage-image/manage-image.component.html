@@ -1,0 +1,22 @@
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="d-flex justify-content-between">
+            <h3>Ảnh của bạn</h3>
+            <div [routerLink]="['/add-image',user.userId]" class="btn btn-outline-info add_image">Thêm vào ảnh mới</div>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let image of images" class="col-xl-3 col-md-4 col-sm-6 mt-4">
+            <div class="card">
+                <img (click)="getImageDetailByUser(userId, image.id)" src="{{image.url}}" class="card-img-top list_img_content" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{image.name}}</h5>
+                    <p class="card-text list_text_content">{{image.desciption}}.</p>
+                    <a (click)="getImageDetailByUser(userId, image.id)" class="btn btn-outline-success mx-auto">Xem chi tiết</a>
+                </div>
+            </div>
+        </div> 
+        <div class="fs-2 mt-5 text-warning" *ngIf="images ==''">Bạn chưa có ảnh nào, hãy thêm ảnh mới !</div>     
+    </div>
+</div>

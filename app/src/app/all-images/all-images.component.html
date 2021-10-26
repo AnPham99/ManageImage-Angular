@@ -1,0 +1,19 @@
+
+
+<app-hot-image></app-hot-image>
+<div class="container mt-5 mb-3">
+    <div class="row">
+        <h3 class="text-primary">Tất cả ảnh <i class="text-primary fas fa-border-all"></i></h3>
+        <div id="#cate" *ngFor="let image of images | paginate: config" class="col-xl-3 col-md-4 col-sm-6 mt-4">
+            <div class="card">
+                <img  (click)="viewDetail(image.id, image)" src="{{image.url}}" class="card-img-top list_img_content" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{image.name}}</h5>
+                    <p class="card-text list_text_content">{{image.desciption}}.</p>
+                    <a (click)="viewDetail(image.id, image)" class="btn btn-outline-success mx-auto">Xem chi tiết</a>
+                </div>
+            </div>
+        </div> 
+        <pagination-controls class="text-center mt-4" (pageChange)="pageChanged($event)"></pagination-controls>
+    </div>
+</div>
